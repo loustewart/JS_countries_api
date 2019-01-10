@@ -1,32 +1,36 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const DetailView = function(){
-
+const DetailView = function(container){
+this.container = container;
 };
 
 DetailView.prototype.bindEvents = function () {
   PubSub.subscribe('Country:selected', (event) => {
-    console.log(event.detail);
+    // console.log(event.detail);
     this.render(event.detail);
   })
 };
 
 DetailView.prototype.render = function (country) {
-  const countryDiv = document.querySelector('#country');
-  const header = document.querySelector('h1');
+  this.container.innerHTML = '';
+
+  const heading = document.createElement('h2');
+  heading.textContent = `Country Selected: ${country.name}`;
+
   const region = document.createElement('p');
-  const flag = document.createElement('img';
-
-  header.textContent = `Country Selected: ${country.name}`;
   region.textContent = `Region: ${country.region}`;
-  flag. = country.flag;
 
+  const flag = document.createElement("img");
+  flag.classList.add('country-flag');
+  flag.textContent = `Flag:`;
+  flag.src = country.flag
 
-  countryDiv.innerHTML = '';
-  countryDiv.appendChild(header);
-  countryDiv.appendChild(region);
-  countryDiv.appendChild(flag);
-
+  this.container.appendChild(heading);
+  this.container.appendChild(region);
+  this.container.appendChild(flag);
 };
+
+
+
 
 module.exports = DetailView;

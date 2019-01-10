@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectView = new SelectView(selectElement);
   selectView.bindEvents()
 
-  const container = document.querySelector('countries');
+  const container = document.querySelector('#country');
 
   const detailView = new DetailView(container);
   detailView.bindEvents();

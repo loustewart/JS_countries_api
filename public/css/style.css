@@ -1,0 +1,19 @@
+.country-flag{
+  width: 75%
+}
+
+body {
+  background-color: grey;
+  font-family: helvetica;
+}
+
+
+h2 {
+  color: darkblue;
+  font-size: 20px
+}
+
+p {
+  color: darkblue;
+  font-size: 18px
+}
